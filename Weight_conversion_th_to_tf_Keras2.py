@@ -3,7 +3,7 @@ import numpy as np
 
 from keras import backend as K
 # from keras.utils.layer_utils import convert_all_kernels_in_model
-from keras.applications import VGG16 
+from keras.applications.vgg16 import VGG16
 
 
 K.set_image_data_format('channels_first')
@@ -52,7 +52,8 @@ if not os.path.exists(dirpath):
     os.makedirs(dirpath)
 
 # Converts (theano kernels, th dim ordering) to (tensorflow kernels, tf dim ordering)
-K.set_image_dim_ordering('th')
+K.set_image_data_format('channels_first')
+
 for weight_fn in model_weights:
     th_dim_model.load_weights(weight_fn) # th-kernels-th-dim
     #convert_all_kernels_in_model(th_dim_model) # tf-kernels-th-dim // ALREADY DONE BY KERAS!
