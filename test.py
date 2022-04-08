@@ -6,10 +6,15 @@ import numpy as np
 from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
 
-class_map = ['letter', 'form', 'email', 'handwritten', 'advertisement',
-	'scientific report', 'scientific publication', 'specification', 'file folder',
-	'news article', 'budget', 'invoice', 'presentation', 'questionnaire',
-	'resume', 'memo']
+# class_map = ['letter', 'form', 'email', 'handwritten', 'advertisement',
+# 	'scientific report', 'scientific publication', 'specification', 'file folder',
+# 	'news article', 'budget', 'invoice', 'presentation', 'questionnaire',
+# 	'resume', 'memo']
+
+class_map = ['others', 'others', 'others', 'others', 'others',
+	'others', 'others', 'others', 'others',
+	'others', 'others', 'invoice', 'others', 'others',
+	'others', 'others']
 
 def test(path):
 	img = image.load_img(path, target_size=(224, 224))
